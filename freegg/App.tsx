@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './pages/Home' 
 import Details from './pages/Details';
+import Categories from './pages/Categories';
 
 
 const Stack = createNativeStackNavigator()
@@ -17,6 +18,7 @@ export default function App() {
   <NavigationContainer>
     <NavSack.Navigator>
       <NavSack.Screen name ="home" component={Home} />
+      <NavSack.Screen name ="categories" component={Categories} />
       <NavSack.Screen name ="details" component={Details} />
     </NavSack.Navigator>
   </NavigationContainer>
