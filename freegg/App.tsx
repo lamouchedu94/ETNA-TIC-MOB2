@@ -17,9 +17,9 @@ export default function App() {
   
   <NavigationContainer>
     <NavSack.Navigator>
-      <NavSack.Screen name ="home" component={Home} />
-      <NavSack.Screen name ="categories" component={Categories} />
-      <NavSack.Screen name ="details" component={Details} />
+      <NavSack.Screen name ="Home" component={Home} />
+      <NavSack.Screen name ="Categories" component={Categories} />
+      <NavSack.Screen name ="Details" component={Details} />
     </NavSack.Navigator>
   </NavigationContainer>
 
