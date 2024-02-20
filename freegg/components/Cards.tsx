@@ -8,24 +8,25 @@ type CardProps = {
 
 export default function Card({ title, thumbnail }: CardProps) {
     return (
-        <View style={cardstylesTest.container}>
+        <View style={cardStyles.container}>
             <Image
                 source={{uri: thumbnail }}
-                style={{ width: 100, height: 100}}
+                style={cardStyles.image}
             />
             <Text>{title}</Text>
         </View>
     )
 }
 
-const cardstylesTest = StyleSheet.create({
+const cardStyles = StyleSheet.create({
     container: {
-      flex: 1,
+      flexDirection:"row",
       flexGrow:1,
       backgroundColor: '#fff',
-    //   width: '100%',
+      width: '100%',
     //   height:'100%',
       paddingLeft:10,
+      paddingTop:15,
       paddingBottom:15,
       margin:10,
       borderColor: "black",
@@ -34,5 +35,10 @@ const cardstylesTest = StyleSheet.create({
       alignItems: "center"
       
     },
+    image: {
+        width:100,
+        height:100,
+        marginRight:10
+    }
   });
   
