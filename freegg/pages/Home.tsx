@@ -8,15 +8,30 @@ import { Games } from '../services/api/types/types';import Card from '../compone
 
 export default function Home() {
   const [tabName, setTabName] = useState<Games[]>([])
-  // const [gamesAlea, setGamesAlea] = useState<Games[]>([])
+  const [gamesAlea, setGamesAlea] = useState<Games[]>([])
 
   useEffect(() => {
     getAllGames().then((data) => {
-      setTabName(data)
+      let tab = []
+      for (let i = 0; i < 10; i++) {
+        const rndInt = Math.floor(Math.random() * data.length) + 1
+        tab.push(data[rndInt])    
+  }
+    setGamesAlea(tab)
+    setTabName(data)
+
     })
+    
   }, [])
   
   // const
+
+  const rndInt = Math.floor(Math.random() * tabName.length) + 1
+  //console.log(rndInt)
+  
+  useEffect(() => {
+    
+  }, [])
 
   return (
   
@@ -24,7 +39,7 @@ export default function Home() {
     
     <Text>
       <StatusBar style="auto" />
-      {tabName.map((elem, i) => {
+      {gamesAlea.map((elem, i) => {
         
         return (
 
