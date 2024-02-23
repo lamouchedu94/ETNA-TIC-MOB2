@@ -14,7 +14,6 @@ const NavSack = createBottomTabNavigator()
 
 export default function App() {
   return (
-  
   <NavigationContainer>
     <NavSack.Navigator>
       <NavSack.Screen name ="Home" component={Home} />

@@ -12,6 +12,10 @@ type CardProps = {
 }
 const Stack = createNativeStackNavigator()
 
+const details = async (gameId :string) => {
+    const gDetails = await details(gameId)
+    
+}
 
 export default function Card({ title, thumbnail }: CardProps) {
     return (
@@ -38,7 +42,7 @@ const cardStyles = StyleSheet.create({
       width: '100%',
     //   height:'100%',
       paddingLeft:10,
-      paddingTop:15,
+      paddingTop:15, 
       paddingBottom:15,
       margin:10,
       borderColor: "black",
