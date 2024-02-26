@@ -1,10 +1,14 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Details from "../pages/Details";
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Detailspage from "./Detailspage";
+//import { Link } from "react-router-native";
+
+
 
 type CardProps = {
     title: string
@@ -12,9 +16,9 @@ type CardProps = {
 }
 const Stack = createNativeStackNavigator()
 
-const details = async (gameId :string) => {
-    const gDetails = await details(gameId)
-    
+function Test() {
+    console.log("ça marche")
+    return <Text>ça marche</Text>
 }
 
 export default function Card({ title, thumbnail }: CardProps) {
@@ -22,11 +26,19 @@ export default function Card({ title, thumbnail }: CardProps) {
         <View>
             <View style={cardStyles.container}>
                 <View>
-                    <Image
-                        source={{uri: thumbnail }}
-                        style={cardStyles.image}
-                    />
+                    <Pressable onPress={Test}>
+                        <Image
+                            source={{uri: thumbnail }}
+                            style={cardStyles.image}
+                        />
+                    </Pressable>
                     <Text>{title}</Text>
+                    {/* <NavigationContainer independent={true}>
+                        <Stack.Navigator>
+                            <Stack.Screen name="Details" component={Detailspage}/>
+                        </Stack.Navigator>
+                    </NavigationContainer> */}
+
 
                 </View>
             </View>
