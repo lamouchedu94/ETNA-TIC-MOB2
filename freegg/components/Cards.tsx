@@ -1,11 +1,8 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, Pressable } from "react-native";
+import { StyleSheet, View, Text, Image, Pressable, Button } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Details from "../pages/Details";
-import { Link } from 'react-router-dom'
-import Detailspage from "./Detailspage";
 //import { Link } from "react-router-native";
 
 
@@ -13,6 +10,8 @@ import Detailspage from "./Detailspage";
 type CardProps = {
     title: string
     thumbnail: string
+    short_description: string
+    navigation: any
 }
 const Stack = createNativeStackNavigator()
 
@@ -21,26 +20,19 @@ function Test() {
     return <Text>ça marche</Text>
 }
 
-export default function Card({ title, thumbnail }: CardProps) {
+export default function Card({ title, thumbnail, navigation, short_description}: CardProps) {
     return (
         <View>
             <View style={cardStyles.container}>
-                <View>
+                
                     <Pressable onPress={Test}>
                         <Image
                             source={{uri: thumbnail }}
                             style={cardStyles.image}
                         />
                     </Pressable>
-                    <Text>{title}</Text>
-                    {/* <NavigationContainer independent={true}>
-                        <Stack.Navigator>
-                            <Stack.Screen name="Details" component={Detailspage}/>
-                        </Stack.Navigator>
-                    </NavigationContainer> */}
-
-
-                </View>
+                    <Button title={title} onPress={() => navigation.navigate("Details", {title: title, thumbnail: thumbnail, short_description: short_description})} />
+                    {/* <Text>{title}</Text> */}
             </View>
         </View>
     )
@@ -51,7 +43,8 @@ const cardStyles = StyleSheet.create({
       flexDirection:"column",
       flexGrow:1,
       backgroundColor: '#fff',
-      width: '100%',
+      width: 335,
+    //   width: '100%',
     //   height:'100%',
       paddingLeft:10,
       paddingTop:15, 
@@ -60,7 +53,8 @@ const cardStyles = StyleSheet.create({
       borderColor: "black",
       borderStyle: "solid",
       borderWidth: 1,
-      alignItems: "center"
+      alignItems: "center",
+      textAlign: "center"
       
     },
     image: {
