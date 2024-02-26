@@ -8,18 +8,22 @@ import Home from './pages/Home'
 import Details from './pages/Details';
 import Categories from './pages/Categories';
 
-
 const Stack = createNativeStackNavigator()
 const NavSack = createBottomTabNavigator()
 
 export default function App() {
+  
   return (
   <NavigationContainer>
-    <NavSack.Navigator>
+    {/* <NavSack.Navigator>
       <NavSack.Screen name ="Home" component={Home} />
       <NavSack.Screen name ="Categories" component={Categories} />
-      <NavSack.Screen name ="Details" component={Details} />
-    </NavSack.Navigator>
+      
+    </NavSack.Navigator> */}
+    <Stack.Navigator>
+      <Stack.Screen name ="Home" component={Home} />
+      <Stack.Screen name ="Details" component={Details} />
+    </Stack.Navigator>
   </NavigationContainer>
 
   );
