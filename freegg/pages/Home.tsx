@@ -4,12 +4,12 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useEffect, useState } from 'react';
 import { getAllGames } from '../services/api/request/request';
 import { Games } from '../services/api/types/types';import Card from '../components/Cards';
-;
+// import { Navigation } from '@react-navigation/native'
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [tabName, setTabName] = useState<Games[]>([])
   const [gamesAlea, setGamesAlea] = useState<Games[]>([])
-
+  console.log(navigation)
   useEffect(() => {
     getAllGames().then((data) => {
       let tab = []
@@ -42,9 +42,8 @@ export default function Home() {
       {gamesAlea.map((elem, i) => {
         
         return (
-
             <View>
-              <Card title={elem.title} thumbnail={elem.thumbnail} key={i}/>
+              <Card title={elem.title} thumbnail={elem.thumbnail} short_description={elem.short_description} navigation={navigation} key={i}/>
               {/* <Card key={i} imagelink={elem.thumbnail}></Card> */}
             </View>
           )
@@ -62,7 +61,7 @@ const Globalstyle = StyleSheet.create({
     display:'flex',
     // flexDirection:'column',
     backgroundColor: "white",
-    width:"auto",
+    width:"100%",
     borderColor: "red",
     borderStyle: "solid",
     borderWidth: 1
