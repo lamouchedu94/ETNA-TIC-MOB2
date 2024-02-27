@@ -58,6 +58,7 @@ const cardStyles = StyleSheet.create({
       textAlign: "center"
       
     },
+    
     image: {
         width:100,
         height:100,
