@@ -39,6 +39,7 @@ export default function Card({ title, thumbnail, navigation, short_description}:
 }
 
 const cardStyles = StyleSheet.create({
+    
     container: {
       flexDirection:"column",
       flexGrow:1,
