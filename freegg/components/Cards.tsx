@@ -20,6 +20,7 @@ function Test() {
     return <Text>ça marche</Text>
 }
 
+
 export default function Card({ title, thumbnail, navigation, short_description}: CardProps) {
     return (
         <View>
