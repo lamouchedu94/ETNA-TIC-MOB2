@@ -12,6 +12,7 @@ type CardProps = {
     thumbnail: string
     short_description: string
     navigation: any
+    id: number
 }
 const Stack = createNativeStackNavigator()
 
@@ -21,7 +22,7 @@ function Test() {
 }
 
 
-export default function Card({ title, thumbnail, navigation, short_description}: CardProps) {
+export default function Card({ title, thumbnail, navigation, short_description, id}: CardProps) {
     return (
         <View>
             <View style={cardStyles.container}>

@@ -44,7 +44,7 @@ export default function Home({ navigation }) {
         
         return (
             <View>
-              <Card title={elem.title} thumbnail={elem.thumbnail} short_description={elem.short_description} navigation={navigation} key={i}/>
+              <Card title={elem.title} thumbnail={elem.thumbnail} short_description={elem.short_description} id={elem.id} navigation={navigation} key={i}/>
               {/* <Card key={i} imagelink={elem.thumbnail}></Card> */}
             </View>
           )
