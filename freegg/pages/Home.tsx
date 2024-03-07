@@ -33,7 +33,6 @@ export default function Home({ navigation }) {
   useEffect(() => {
     
   }, [])
-
   return (
   
   <ScrollView style={Globalstyle.container}>
@@ -44,6 +43,7 @@ export default function Home({ navigation }) {
         
         return (
             <View>
+              
               <Card title={elem.title} thumbnail={elem.thumbnail} short_description={elem.short_description} id={elem.id} navigation={navigation} key={i}/>
               {/* <Card key={i} imagelink={elem.thumbnail}></Card> */}
             </View>
