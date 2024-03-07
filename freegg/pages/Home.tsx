@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 import { useEffect, useState } from 'react';
 import { getAllGames } from '../services/api/request/request';
 import { Games } from '../services/api/types/types';import Card from '../components/Cards';
@@ -34,7 +34,9 @@ export default function Home({ navigation }) {
     
   }, [])
   return (
-  
+  <View style={Globalstyle.catgories}>
+  <Text>Categorie</Text>
+  <Button title='Categorie' onPress={() => navigation.navigate("Categories")}></Button>
   <ScrollView style={Globalstyle.container}>
     
     <Text>
@@ -52,7 +54,7 @@ export default function Home({ navigation }) {
     </Text>
     
   </ScrollView>
-
+  </View>
   );
 }
 
@@ -66,6 +68,10 @@ const Globalstyle = StyleSheet.create({
     borderColor: "red",
     borderStyle: "solid",
     borderWidth: 1
+  },
+  catgories: {
+    alignItems: "center",
+    width:'100%'
   }
 })
 
