@@ -9,14 +9,15 @@ import { Games } from '../services/api/types/types';import Card from '../compone
 export default function Home({ navigation }) {
   const [tabName, setTabName] = useState<Games[]>([])
   const [gamesAlea, setGamesAlea] = useState<Games[]>([])
-  console.log(navigation)
+  //console.log(navigation)
   useEffect(() => {
     getAllGames().then((data) => {
       let tab = []
       for (let i = 0; i < 10; i++) {
         const rndInt = Math.floor(Math.random() * data.length) + 1
         tab.push(data[rndInt])    
-  }
+      }
+
     setGamesAlea(tab)
     setTabName(data)
 
