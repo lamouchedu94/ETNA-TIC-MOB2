@@ -33,7 +33,7 @@ export default function Card({ title, thumbnail, navigation, short_description, 
                             style={cardStyles.image}
                         />
                     </Pressable>
-                    <Button title={title} onPress={() => navigation.navigate("Details", {title: title, thumbnail: thumbnail, short_description: short_description})} />
+                    <Button title={title} onPress={() => navigation.navigate("Details", {title: title, thumbnail: thumbnail, short_description: short_description, id})} />
                     {/* <Text>{title}</Text> */}
             </View>
         </View>
