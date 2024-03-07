@@ -1,5 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { getSpecificGame } from '../services/api/request/request';
+import { useEffect, useState } from 'react';
+import { Games } from '../services/api/types/types';import Card from '../components/Cards';
 
 
 type GameDetails = {
@@ -7,8 +10,18 @@ type GameDetails = {
   thumbnail: string
 }
 
-export default function Details({ route }: { route: { params: { title: string, thumbnail: string, short_description: string } } }) {
-  const { title, thumbnail, short_description } = route.params;
+export default function Details({ route }: { route: { params: { title: string, thumbnail: string, short_description: string, id: number } } }) {
+  const { title, thumbnail, short_description, id } = route.params;
+  const [tab, setTab] = useState<Games>()
+
+  console.log("hereeee", id)
+  useEffect(() => {
+    getSpecificGame(id).then((data:Games) => {
+      setTab(data)
+    })
+    
+  }, [])
+  console.log("here", tab)
   return (
   <View style={imgStyle.container}>
       
@@ -18,6 +31,7 @@ export default function Details({ route }: { route: { params: { title: string, t
         />
       <Text>{title}</Text>
       <Text>{short_description}</Text>
+      <Text>{tab?.description}</Text>
     </View>
 
   );
