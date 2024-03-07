@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { getSpecificGame } from '../services/api/request/request';
 import { useEffect, useState } from 'react';
 import { Games } from '../services/api/types/types';import Card from '../components/Cards';
@@ -23,16 +23,17 @@ export default function Details({ route }: { route: { params: { title: string, t
   }, [])
   console.log("here", tab)
   return (
-  <View style={imgStyle.container}>
-      
-        <Image
-          source={{uri: thumbnail }}
-          style={imgStyle.image}
-        />
-      <Text>{title}</Text>
-      <Text>{short_description}</Text>
-      <Text>{tab?.description}</Text>
-    </View>
+    <ScrollView>
+      <View style={imgStyle.container}>
+          <Image
+            source={{uri: thumbnail }}
+            style={imgStyle.image}
+          />
+        <Text>{title}</Text>
+        <Text>{short_description}</Text>
+        <Text>{tab?.description}</Text>
+      </View>
+    </ScrollView>
 
   );
 }

@@ -9,6 +9,7 @@ import { Games } from '../services/api/types/types';import Card from '../compone
 export default function Home({ navigation }) {
   const [tabName, setTabName] = useState<Games[]>([])
   const [gamesAlea, setGamesAlea] = useState<Games[]>([])
+  const [gameCategories, setGameCategories] = useState<string[]>([])
   //console.log(navigation)
   useEffect(() => {
     getAllGames().then((data) => {
@@ -20,11 +21,21 @@ export default function Home({ navigation }) {
 
     setGamesAlea(tab)
     setTabName(data)
-
     })
+    let temp : string[] = [""]
+    tabName.map((elem) => {
+      if (! gameCategories.includes(elem.genre!)) {
+        temp.push(elem.genre)
+      }
+    })
+    setGameCategories(temp)
+    
+    console.log(gameCategories)
     
   }, [])
   
+
+
   // const
 
   const rndInt = Math.floor(Math.random() * tabName.length) + 1

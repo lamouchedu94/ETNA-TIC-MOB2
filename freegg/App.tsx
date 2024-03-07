@@ -23,6 +23,7 @@ export default function App() {
     <Stack.Navigator>
       <Stack.Screen name ="Home" component={Home} />
       <Stack.Screen name ="Details" component={Details} />
+      <Stack.Screen name ="Categories" component={Categories} />
     </Stack.Navigator>
   </NavigationContainer>
 
