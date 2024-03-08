@@ -3,7 +3,8 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 import { useEffect, useState } from 'react';
 import { getAllGames } from '../services/api/request/request';
-import { Games } from '../services/api/types/types';import Card from '../components/Cards';
+import { Games } from '../services/api/types/types';
+import Card from '../components/Cards';
 // import { Navigation } from '@react-navigation/native'
 
 export default function Home({ navigation }) {
@@ -32,7 +33,7 @@ export default function Home({ navigation }) {
     })
     setGameCategories(temp)
     
-    console.log(gameCategories, temp)
+    // console.log(gameCategories, temp)
   }, [tabName])
 
   // const
