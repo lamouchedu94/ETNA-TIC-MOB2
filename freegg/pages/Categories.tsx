@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 
 
@@ -13,18 +13,18 @@ export default function Categories({ route }: {route: { params: {categories: Arr
     })
   
   return (
-  
-  <View style={styles.container}>
-      <View>
-        <Text>{categories.map((elem, i) => {
-            return elem + "\n"
+    <ScrollView>
+      <View style={styles.container}>       
+        {categories.map((elem, i) => {
+            return (
+              <View style={styles.categories}>
+                <Text>{elem + "\n"}</Text>
+              </View>
+            )
           })}
-      </Text>
+        <StatusBar style="auto" />
       </View>
-      <Text></Text>    
-      <StatusBar style="auto" />
-
-    </View>
+    </ScrollView>
 
   );
 }
@@ -36,5 +36,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    borderColor: "black",
+    borderStyle: "solid",
+    borderWidth: 1
   },
+  categories: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: "black",
+    borderStyle: "solid",
+    borderWidth: 1,
+    width:'100%',
+    paddingTop:10
+  }
 });
