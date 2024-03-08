@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ScrollView, Button, Pressable } from 'react-nat
 
 
 
-export default function Categories({ route }: {route: { params: {categories: Array<string>}}}) {
+export default function Categories({ route, navigation }: {route: { params: {categories: Array<string>}}}) {
   const { categories  } = route.params
   console.log("holaaaa")
   
@@ -18,7 +18,7 @@ export default function Categories({ route }: {route: { params: {categories: Arr
         {categories.map((elem, i) => {
             return (
               <View style={styles.categories}>
-                <Pressable style={styles.buttonStyle}>
+                <Pressable style={styles.buttonStyle} key={i} onPress={() => navigation.navigate("Categorie", {categorie : elem})}>
                   <Text>{elem + "\n"}</Text>
                 </Pressable>
                 {/* <Text>{elem + "\n"}</Text> */}

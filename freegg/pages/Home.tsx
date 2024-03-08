@@ -44,7 +44,6 @@ export default function Home({ navigation }) {
   <View style={Globalstyle.catgories}>
   {/* <Text>Categorie</Text> */}
   <ScrollView style={Globalstyle.container}>
-    {console.log(gameCategories, "Buenos dias !")}
     <Button title='Categorie' onPress={() => navigation.navigate("Categories", {categories: gameCategories})}/>
 
     <Text>

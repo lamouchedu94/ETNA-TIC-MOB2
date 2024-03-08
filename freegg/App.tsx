@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './pages/Home' 
 import Details from './pages/Details';
 import Categories from './pages/Categories';
+import CatDisplay from './pages/CatDisplay';
 
 const Stack = createNativeStackNavigator()
 const NavSack = createBottomTabNavigator()
@@ -24,6 +25,7 @@ export default function App() {
       <Stack.Screen name ="Home" component={Home} />
       <Stack.Screen name ="Details" component={Details} />
       <Stack.Screen name ="Categories" component={Categories} />
+      <Stack.Screen name ="Categorie" component={CatDisplay} />
     </Stack.Navigator>
   </NavigationContainer>
 
