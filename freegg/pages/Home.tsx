@@ -18,38 +18,35 @@ export default function Home({ navigation }) {
         const rndInt = Math.floor(Math.random() * data.length) + 1
         tab.push(data[rndInt])    
       }
-
     setGamesAlea(tab)
     setTabName(data)
     })
-    let temp : string[] = [""]
+  }, [])
+  let temp : string[] = []
+  useEffect(() => {
+    // let temp : string[] = []
     tabName.map((elem) => {
-      if (! gameCategories.includes(elem.genre!)) {
+      if (!temp.includes(elem.genre!)) {
         temp.push(elem.genre)
       }
     })
     setGameCategories(temp)
     
-    console.log(gameCategories)
-    
-  }, [])
-  
-
+    console.log(gameCategories, temp)
+  }, [tabName])
 
   // const
 
   const rndInt = Math.floor(Math.random() * tabName.length) + 1
   //console.log(rndInt)
   
-  useEffect(() => {
-    
-  }, [])
   return (
   <View style={Globalstyle.catgories}>
-  <Text>Categorie</Text>
-  <Button title='Categorie' onPress={() => navigation.navigate("Categories")}></Button>
+  {/* <Text>Categorie</Text> */}
   <ScrollView style={Globalstyle.container}>
-    
+    {console.log(gameCategories, "Buenos dias !")}
+    <Button title='Categorie' onPress={() => navigation.navigate("Categories", {categories: gameCategories})}/>
+
     <Text>
       <StatusBar style="auto" />
       {gamesAlea.map((elem, i) => {

@@ -14,14 +14,12 @@ export default function Details({ route }: { route: { params: { title: string, t
   const { title, thumbnail, short_description, id } = route.params;
   const [tab, setTab] = useState<Games>()
 
-  console.log("hereeee", id)
   useEffect(() => {
     getSpecificGame(id).then((data:Games) => {
       setTab(data)
     })
     
   }, [])
-  console.log("here", tab)
   return (
     <ScrollView>
       <View style={imgStyle.container}>
