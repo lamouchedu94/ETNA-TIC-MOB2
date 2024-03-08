@@ -11,3 +11,10 @@ export const getSpecificGame = async (id : number) => {
         return response.data
     })
 }
+
+
+export const getSpecificCat = async (categorie : string) => {
+    return api.get(`/games?category=${categorie}`).then((response) => {
+        return response.data
+    })
+}
