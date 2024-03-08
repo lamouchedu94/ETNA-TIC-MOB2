@@ -16,16 +16,17 @@ export default function CatDisplay({ route, navigation }: { route: { params : { 
         
     }, [])
     // console.log(tabName)
-    
-    return (
-        <View style={Globalstyle.catgories}>
-        {/* <Text>Categorie</Text> */}
-        <ScrollView style={Globalstyle.container}>
-          <Text>
-            <StatusBar style="auto" />
-            {tabName.map((elem, i) => {
-              console.log(elem)
-              return (
+    function condition() {
+        if (tabName.length === 0) {
+            return <Text>No game in this category.</Text>
+        } else {
+            return (
+                <ScrollView style={Globalstyle.container}>
+                <Text>
+                <StatusBar style="auto" />
+                {tabName.map((elem, i) => {
+                 //   console.log(elem)
+                return (
                   <View>
                     <Card title={elem.title} thumbnail={elem.thumbnail} short_description={elem.short_description} id={elem.id} navigation={navigation} key={i}/>
                     {/* <Card key={i} imagelink={elem.thumbnail}></Card> */}
@@ -35,6 +36,13 @@ export default function CatDisplay({ route, navigation }: { route: { params : { 
           </Text>
           
         </ScrollView>
+            )
+        }
+    }
+    return (
+        <View style={Globalstyle.catgories}>
+        {/* <Text>Categorie</Text> */}
+        {condition()}
         </View>
     )
 }
@@ -77,9 +85,9 @@ const Globalstyle = StyleSheet.create({
       // flexDirection:'column',
       backgroundColor: "white",
       width:"100%",
-      borderColor: "red",
-      borderStyle: "solid",
-      borderWidth: 1
+    //   borderColor: "red",
+    //   borderStyle: "solid",
+    //   borderWidth: 1
     },
     catgories: {
       alignItems: "center",

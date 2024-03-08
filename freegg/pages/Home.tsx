@@ -73,9 +73,9 @@ const Globalstyle = StyleSheet.create({
     // flexDirection:'column',
     backgroundColor: "white",
     width:"100%",
-    borderColor: "red",
-    borderStyle: "solid",
-    borderWidth: 1
+    // borderColor: "red",
+    // borderStyle: "solid",
+    // borderWidth: 1
   },
   catgories: {
     alignItems: "center",

@@ -27,9 +27,25 @@ export default function Details({ route }: { route: { params: { title: string, t
             source={{uri: thumbnail }}
             style={imgStyle.image}
           />
-        <Text>{title}</Text>
-        <Text>{short_description}</Text>
-        <Text>{tab?.description}</Text>
+          <Text>{title}</Text>
+        <View style={imgStyle.info}>
+          <Text>{short_description}</Text>
+          <Text>{tab?.description}</Text>
+          <Text>{tab?.game_url}</Text>
+          <Text>Genre : {tab?.genre}</Text>
+          {/* <Text>{tab?.minimum_system_requirements}</Text> */}
+          <Text>Platform : {tab?.platform}</Text>
+          <Text>Publisher : {tab?.publisher}</Text>
+          <Text>Release date : {tab?.release_date}</Text>
+          {tab?.screenshots.map((elem, i) => {
+            return (
+              <Image
+                source={{uri: elem.image}}
+                style={imgStyle.image}
+              />
+            )
+          })}
+        </View>
       </View>
     </ScrollView>
 
@@ -66,11 +82,14 @@ const imgStyle = StyleSheet.create({
     
   },
   image: {
-      width:200,
-      height:200,
-      marginRight:10,
-      display:'flex',
-      flexDirection:'row'
+    width:200,
+    height:200,
+    marginRight:10,
+    display:'flex',
+    flexDirection:'row'
   },
+  info : {
+    alignContent:'flex-start'
+  }
 
 });
